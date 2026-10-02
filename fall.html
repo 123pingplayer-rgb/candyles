@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fall Candyles | Candyles</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffaf5;
+      color: #321d14;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ead8c9;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #321d14;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px;
+      background: linear-gradient(135deg, #6d2414, #c75b25);
+      color: white;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: 52px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin: 0;
+    }
+
+    .shop {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 25px;
+    }
+
+    .shop h2 {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    #products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 28px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+    }
+
+    .product-image {
+      height: 280px;
+      background: #f1e3d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #8a6653;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .details {
+      padding: 22px;
+    }
+
+    .details h3 {
+      font-family: Georgia, serif;
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      color: #a7441d;
+      margin: 12px 0;
+    }
+
+    .colors {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      line-height: 1.5;
+      color: #684b3c;
+    }
+
+    .coming-soon {
+      font-family: Georgia, serif;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #321d14;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CANDYLES</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="fall.html">Fall</a>
+    <a href="diwali.html">Diwali</a>
+    <a href="candy.html">Candy</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Fall Candyles</h1>
+  <p>Warm scents • Cozy spaces • Happy moments</p>
+</section>
+
+<section class="shop">
+
+  <h2>Handcrafted for Fall</h2>
+
+  <div id="products"></div>
+
+</section>
+
+<footer>
+  © Candyles • Handcrafted with love
+</footer>
+
+
+<script>
+
+function parseCSV(text) {
+
+  const rows = [];
+  let row = [];
+  let field = "";
+  let quoted = false;
+
+  for (let i = 0; i < text.length; i++) {
+
+    const char = text[i];
+
+    if (char === '"') {
+
+      if (quoted && text[i + 1] === '"') {
+        field += '"';
+        i++;
+      } else {
+        quoted = !quoted;
+      }
+
+    } else if (char === "," && !quoted) {
+
+      row.push(field);
+      field = "";
+
+    } else if ((char === "\n" || char === "\r") && !quoted) {
+
+      if (char === "\r" && text[i + 1] === "\n") i++;
+
+      row.push(field);
+
+      if (row.some(value => value.trim() !== "")) {
+        rows.push(row);
+      }
+
+      row = [];
+      field = "";
+
+    } else {
+
+      field += char;
+
+    }
+  }
+
+  if (field || row.length) {
+    row.push(field);
+    rows.push(row);
+  }
+
+  const headers = rows.shift().map(h => h.trim());
+
+  return rows.map(values => {
+
+    const item = {};
+
+    headers.forEach((header, index) => {
+      item[header] = (values[index] || "").trim();
+    });
+
+    return item;
+
+  });
+}
+
+
+fetch("products.csv")
+  .then(response => response.text())
+  .then(text => {
+
+    const products = parseCSV(text);
+
+    const fallProducts = products.filter(product =>
+      product["Collection"] &&
+      product["Collection"].toLowerCase() === "fall" &&
+      (!product["In Stock"] ||
+       product["In Stock"].toLowerCase() === "yes")
+    );
+
+    const container = document.getElementById("products");
+
+    fallProducts.forEach(product => {
+
+      const card = document.createElement("div");
+      card.className = "product";
+
+      const imageFile = product["Picture File"];
+
+      const price = product["Price"]
+        ? "$" + product["Price"].replace("$","")
+        : "Price coming soon";
+
+      card.innerHTML = `
+        <div class="product-image">
+          ${
+            imageFile
+            ? `<img
+                 src="images/products/${imageFile}"
+                 alt="${product["Product Name"]}"
+                 onerror="
+                   this.style.display='none';
+                   this.parentElement.innerHTML=
+                   '<div class=coming-soon>Product photo<br>coming soon</div>';
+                 "
+               >`
+            : `<div class="coming-soon">
+                 Product photo<br>coming soon
+               </div>`
+          }
+        </div>
+
+        <div class="details">
+
+          <h3>${product["Product Name"]}</h3>
+
+          <div class="price">
+            ${price}
+          </div>
+
+          ${
+            product["Colors"]
+            ? `<div class="colors">
+                 <strong>Available colors:</strong>
+                 ${product["Colors"]}
+               </div>`
+            : ""
+          }
+
+          <div class="description">
+            ${product["Description"] || ""}
+          </div>
+
+        </div>
+      `;
+
+      container.appendChild(card);
+
+    });
+
+  })
+  .catch(error => {
+
+    document.getElementById("products").innerHTML =
+      "<p>Products are being updated. Please check back soon.</p>";
+
+    console.error(error);
+
+  });
+
+</script>
+
+</body>
+</html>
