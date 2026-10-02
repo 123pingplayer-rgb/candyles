@@ -3,25 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fall Candyles | Candyles</title>
+
+  <title>Fall Candyles | Handcrafted Candles</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #fffaf5;
       color: #321d14;
     }
 
+    /* =========================
+       HEADER
+       ========================= */
+
     header {
-      background: #fff;
+      background: #ffffff;
       padding: 20px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #ead8c9;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
@@ -35,131 +45,339 @@
       color: #321d14;
       text-decoration: none;
       margin-left: 25px;
+      font-size: 15px;
     }
 
+    nav a:hover {
+      color: #b65325;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
     .hero {
+      min-height: 390px;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 75px 20px;
-      background: linear-gradient(135deg, #6d2414, #c75b25);
+
+      background:
+        linear-gradient(
+          rgba(74, 25, 10, 0.55),
+          rgba(74, 25, 10, 0.55)
+        ),
+        linear-gradient(135deg, #682313, #d06b28);
+
       color: white;
+    }
+
+    .hero-small {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: 52px;
-      margin: 0 0 15px;
+      font-size: 58px;
+      margin: 0 0 16px;
     }
 
     .hero p {
       font-size: 19px;
+      line-height: 1.6;
+      max-width: 650px;
       margin: 0;
     }
 
-    .shop {
-      max-width: 1200px;
+    /* =========================
+       INTRO
+       ========================= */
+
+    .intro {
+      max-width: 800px;
       margin: auto;
-      padding: 55px 25px;
+      padding: 55px 25px 15px;
+      text-align: center;
     }
 
-    .shop h2 {
-      text-align: center;
+    .intro h2 {
       font-family: Georgia, serif;
       font-size: 36px;
-      margin-bottom: 40px;
+      margin: 0 0 15px;
+    }
+
+    .intro p {
+      color: #705243;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* =========================
+       PRODUCT GRID
+       ========================= */
+
+    .shop {
+      max-width: 1250px;
+      margin: auto;
+      padding: 35px 25px 70px;
     }
 
     #products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
+
+    /* =========================
+       PRODUCT CARD
+       ========================= */
 
     .product {
       background: white;
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+      box-shadow: 0 6px 22px rgba(62, 31, 18, 0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
 
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(62, 31, 18, 0.15);
+    }
+
+    /* =========================
+       PRODUCT IMAGE
+       ========================= */
+
     .product-image {
-      height: 280px;
-      background: #f1e3d5;
+      height: 310px;
+      background:
+        linear-gradient(135deg, #f7e8d9, #efd2b8);
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       overflow: hidden;
-      color: #8a6653;
+      position: relative;
       text-align: center;
-      padding: 20px;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .details {
-      padding: 22px;
-    }
-
-    .details h3 {
-      font-family: Georgia, serif;
-      margin: 0 0 10px;
-      font-size: 23px;
-    }
-
-    .price {
-      font-size: 21px;
-      font-weight: bold;
-      color: #a7441d;
-      margin: 12px 0;
-    }
-
-    .colors {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .description {
-      line-height: 1.5;
-      color: #684b3c;
+      display: block;
     }
 
     .coming-soon {
       font-family: Georgia, serif;
-      font-size: 18px;
+      color: #8b624c;
+      font-size: 19px;
+      line-height: 1.5;
     }
+
+    .coming-soon span {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+
+    /* =========================
+       BADGES
+       ========================= */
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #fff6e9;
+      color: #743518;
+      padding: 7px 11px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 5;
+    }
+
+    .sold-out {
+      background: #553b30;
+      color: white;
+    }
+
+    /* =========================
+       PRODUCT DETAILS
+       ========================= */
+
+    .details {
+      padding: 23px;
+    }
+
+    .details h3 {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      margin: 0 0 9px;
+    }
+
+    .product-id {
+      font-size: 11px;
+      color: #a28b7e;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #ad4a1e;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .attribute {
+      border-top: 1px solid #f0e3da;
+      padding: 10px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .attribute strong {
+      color: #40251a;
+    }
+
+    .description {
+      color: #705243;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-top: 13px;
+    }
+
+    /* =========================
+       COLOR CHIPS
+       ========================= */
+
+    .color-list {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .color-chip {
+      background: #f8eee7;
+      border: 1px solid #ead7ca;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+
+    /* =========================
+       EMPTY / ERROR MESSAGE
+       ========================= */
+
+    .message {
+      grid-column: 1 / -1;
+      text-align: center;
+      background: white;
+      border-radius: 12px;
+      padding: 45px 20px;
+      color: #705243;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
 
     footer {
       background: #321d14;
-      color: white;
+      color: #f8eee7;
       text-align: center;
-      padding: 30px;
-      margin-top: 40px;
+      padding: 38px 20px;
     }
 
-    @media (max-width: 600px) {
+    footer .footer-logo {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      margin: 5px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 650px) {
+
       header {
         flex-direction: column;
         gap: 15px;
+        padding: 16px;
+      }
+
+      nav {
+        text-align: center;
       }
 
       nav a {
-        margin: 0 8px;
+        margin: 0 7px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 320px;
+        padding: 60px 20px;
       }
 
       .hero h1 {
-        font-size: 38px;
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .intro h2 {
+        font-size: 30px;
+      }
+
+      .product-image {
+        height: 290px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
+<!-- =========================
+     HEADER
+     ========================= -->
+
 <header>
-  <div class="logo">CANDYLES</div>
+
+  <div class="logo">
+    CANDYLES
+  </div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -167,31 +385,96 @@
     <a href="diwali.html">Diwali</a>
     <a href="candy.html">Candy</a>
   </nav>
+
 </header>
 
+
+<!-- =========================
+     FALL HERO
+     ========================= -->
+
 <section class="hero">
+
+  <div class="hero-small">
+    Seasonal Collection
+  </div>
+
   <h1>Fall Candyles</h1>
-  <p>Warm scents • Cozy spaces • Happy moments</p>
+
+  <p>
+    Embrace the cozy vibes of fall with handcrafted candles
+    designed for warm spaces, thoughtful gifts and happy moments.
+  </p>
+
 </section>
 
-<section class="shop">
+
+<!-- =========================
+     INTRO
+     ========================= -->
+
+<section class="intro">
 
   <h2>Handcrafted for Fall</h2>
 
-  <div id="products"></div>
+  <p>
+    Discover our seasonal collection of decorative and scented
+    candles. Each Candyle is handcrafted with its own personality,
+    colors and details.
+  </p>
 
 </section>
 
+
+<!-- =========================
+     PRODUCTS
+     ========================= -->
+
+<section class="shop">
+
+  <div id="products">
+
+    <div class="message">
+      Loading Fall Candyles...
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
 <footer>
-  © Candyles • Handcrafted with love
+
+  <div class="footer-logo">
+    CANDYLES
+  </div>
+
+  <p>
+    Handcrafted with love.
+  </p>
+
+  <p>
+    © Candyles
+  </p>
+
 </footer>
 
 
 <script>
 
+/* =====================================================
+   CSV PARSER
+   Handles commas inside quoted CSV fields.
+   ===================================================== */
+
 function parseCSV(text) {
 
   const rows = [];
+
   let row = [];
   let field = "";
   let quoted = false;
@@ -203,142 +486,588 @@ function parseCSV(text) {
     if (char === '"') {
 
       if (quoted && text[i + 1] === '"') {
+
         field += '"';
         i++;
+
       } else {
+
         quoted = !quoted;
+
       }
 
-    } else if (char === "," && !quoted) {
+    }
+
+    else if (char === "," && !quoted) {
 
       row.push(field);
       field = "";
 
-    } else if ((char === "\n" || char === "\r") && !quoted) {
+    }
 
-      if (char === "\r" && text[i + 1] === "\n") i++;
+    else if (
+      (char === "\n" || char === "\r") &&
+      !quoted
+    ) {
+
+      if (
+        char === "\r" &&
+        text[i + 1] === "\n"
+      ) {
+        i++;
+      }
 
       row.push(field);
 
-      if (row.some(value => value.trim() !== "")) {
+      if (
+        row.some(
+          value => value.trim() !== ""
+        )
+      ) {
         rows.push(row);
       }
 
       row = [];
       field = "";
 
-    } else {
+    }
+
+    else {
 
       field += char;
 
     }
+
   }
+
 
   if (field || row.length) {
+
     row.push(field);
     rows.push(row);
+
   }
 
-  const headers = rows.shift().map(h => h.trim());
+
+  if (!rows.length) {
+    return [];
+  }
+
+
+  const headers =
+    rows.shift().map(
+      header => header.trim()
+    );
+
 
   return rows.map(values => {
 
-    const item = {};
+    const product = {};
 
-    headers.forEach((header, index) => {
-      item[header] = (values[index] || "").trim();
-    });
+    headers.forEach(
+      (header, index) => {
 
-    return item;
+        product[header] =
+          (values[index] || "").trim();
+
+      }
+    );
+
+    return product;
 
   });
+
 }
 
 
-fetch("products.csv")
-  .then(response => response.text())
-  .then(text => {
+/* =====================================================
+   SAFE HTML
+   Prevents product text from accidentally becoming HTML.
+   ===================================================== */
 
-    const products = parseCSV(text);
+function escapeHTML(value) {
 
-    const fallProducts = products.filter(product =>
-      product["Collection"] &&
-      product["Collection"].toLowerCase() === "fall" &&
-      (!product["In Stock"] ||
-       product["In Stock"].toLowerCase() === "yes")
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   PRICE FORMATTER
+   ===================================================== */
+
+function formatPrice(value) {
+
+  if (!value || !value.trim()) {
+    return "Price coming soon";
+  }
+
+  const cleaned =
+    value.replace("$", "").trim();
+
+  const number =
+    Number(cleaned);
+
+  if (Number.isNaN(number)) {
+    return "$" + escapeHTML(cleaned);
+  }
+
+  return "$" + number.toFixed(2);
+
+}
+
+
+/* =====================================================
+   COLOR CHIPS
+   Turns:
+   Orange, Green
+
+   into separate visual options.
+   ===================================================== */
+
+function createColors(colors) {
+
+  if (!colors) {
+    return "";
+  }
+
+  const list =
+    colors
+      .split(",")
+      .map(color => color.trim())
+      .filter(Boolean);
+
+
+  if (!list.length) {
+    return "";
+  }
+
+
+  const chips =
+    list
+      .map(
+        color =>
+          `<span class="color-chip">${escapeHTML(color)}</span>`
+      )
+      .join("");
+
+
+  return `
+    <div class="attribute">
+
+      <strong>Available colors</strong>
+
+      <div class="color-list">
+        ${chips}
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* =====================================================
+   SCENT DISPLAY
+
+   Scented = Yes
+   Scent = Apple Cinnamon
+
+   displays:
+   Scent: Apple Cinnamon
+
+   Scented = No
+
+   displays:
+   Scent: Unscented
+   ===================================================== */
+
+function createScent(product) {
+
+  const scented =
+    (product["Scented"] || "")
+      .trim()
+      .toLowerCase();
+
+  const scent =
+    (product["Scent"] || "").trim();
+
+
+  if (scented === "yes") {
+
+    return `
+      <div class="attribute">
+
+        <strong>Scent:</strong>
+        ${
+          scent
+            ? escapeHTML(scent)
+            : "Scented"
+        }
+
+      </div>
+    `;
+
+  }
+
+
+  if (scented === "no") {
+
+    return `
+      <div class="attribute">
+
+        <strong>Scent:</strong>
+        Unscented
+
+      </div>
+    `;
+
+  }
+
+
+  /*
+    If Scented hasn't been entered yet,
+    don't display incorrect information.
+  */
+
+  return "";
+
+}
+
+
+/* =====================================================
+   SIZE DISPLAY
+   ===================================================== */
+
+function createSize(size) {
+
+  if (!size) {
+    return "";
+  }
+
+  return `
+    <div class="attribute">
+
+      <strong>Size:</strong>
+      ${escapeHTML(size)}
+
+    </div>
+  `;
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+
+   If the image does not exist,
+   automatically displays a placeholder.
+   ===================================================== */
+
+function createImage(product) {
+
+  const imageFile =
+    (product["Picture File"] || "").trim();
+
+  const productName =
+    escapeHTML(
+      product["Product Name"] ||
+      "Candyles product"
     );
 
-    const container = document.getElementById("products");
+
+  if (!imageFile) {
+
+    return `
+      <div class="product-image">
+
+        <div class="coming-soon">
+          Product photo
+          <br>
+          coming soon
+
+          <span>
+            Candyles
+          </span>
+        </div>
+
+      </div>
+    `;
+
+  }
+
+
+  const safeFile =
+    escapeHTML(imageFile);
+
+
+  return `
+    <div class="product-image">
+
+      <img
+        src="images/products/${safeFile}"
+        alt="${productName}"
+
+        onerror="
+          this.style.display='none';
+
+          this.parentElement.innerHTML =
+          '<div class=&quot;coming-soon&quot;>' +
+          'Product photo<br>coming soon' +
+          '<span>Candyles</span>' +
+          '</div>';
+        "
+      >
+
+    </div>
+  `;
+
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+   ===================================================== */
+
+function createProductCard(product) {
+
+  const productName =
+    escapeHTML(
+      product["Product Name"] ||
+      "Candyles Candle"
+    );
+
+
+  const productID =
+    escapeHTML(
+      product["Product ID"] || ""
+    );
+
+
+  const description =
+    escapeHTML(
+      product["Description"] || ""
+    );
+
+
+  const inStock =
+    (product["In Stock"] || "Yes")
+      .trim()
+      .toLowerCase();
+
+
+  const featured =
+    (product["Featured"] || "")
+      .trim()
+      .toLowerCase();
+
+
+  let badge = "";
+
+
+  if (inStock === "no") {
+
+    badge =
+      `<div class="badge sold-out">
+        Sold Out
+      </div>`;
+
+  }
+
+  else if (featured === "yes") {
+
+    badge =
+      `<div class="badge">
+        Featured
+      </div>`;
+
+  }
+
+
+  const card =
+    document.createElement("article");
+
+
+  card.className = "product";
+
+
+  card.innerHTML = `
+
+    ${badge}
+
+    ${createImage(product)}
+
+    <div class="details">
+
+      <h3>
+        ${productName}
+      </h3>
+
+
+      ${
+        productID
+          ? `
+            <div class="product-id">
+              ${productID}
+            </div>
+          `
+          : ""
+      }
+
+
+      <div class="price">
+        ${formatPrice(product["Price"] || "")}
+      </div>
+
+
+      ${createColors(product["Colors"] || "")}
+
+
+      ${createScent(product)}
+
+
+      ${createSize(product["Size"] || "")}
+
+
+      ${
+        description
+          ? `
+            <div class="description">
+              ${description}
+            </div>
+          `
+          : ""
+      }
+
+    </div>
+
+  `;
+
+
+  return card;
+
+}
+
+
+/* =====================================================
+   LOAD PRODUCTS.CSV
+   ===================================================== */
+
+fetch("products.csv?version=" + Date.now())
+
+  .then(response => {
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Unable to load products.csv"
+      );
+
+    }
+
+    return response.text();
+
+  })
+
+
+  .then(text => {
+
+    const products =
+      parseCSV(text);
+
+
+    /*
+      Only products belonging to the
+      Fall collection appear here.
+
+      Sold-out products are intentionally
+      retained so customers can see them.
+    */
+
+    const fallProducts =
+      products.filter(product => {
+
+        return (
+          (product["Collection"] || "")
+            .trim()
+            .toLowerCase()
+          === "fall"
+        );
+
+      });
+
+
+    const container =
+      document.getElementById("products");
+
+
+    container.innerHTML = "";
+
+
+    if (!fallProducts.length) {
+
+      container.innerHTML = `
+
+        <div class="message">
+
+          Our Fall Candyles are being
+          prepared.
+
+          <br><br>
+
+          Please check back soon.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
 
     fallProducts.forEach(product => {
 
-      const card = document.createElement("div");
-      card.className = "product";
-
-      const imageFile = product["Picture File"];
-
-      const price = product["Price"]
-        ? "$" + product["Price"].replace("$","")
-        : "Price coming soon";
-
-      card.innerHTML = `
-        <div class="product-image">
-          ${
-            imageFile
-            ? `<img
-                 src="images/products/${imageFile}"
-                 alt="${product["Product Name"]}"
-                 onerror="
-                   this.style.display='none';
-                   this.parentElement.innerHTML=
-                   '<div class=coming-soon>Product photo<br>coming soon</div>';
-                 "
-               >`
-            : `<div class="coming-soon">
-                 Product photo<br>coming soon
-               </div>`
-          }
-        </div>
-
-        <div class="details">
-
-          <h3>${product["Product Name"]}</h3>
-
-          <div class="price">
-            ${price}
-          </div>
-
-          ${
-            product["Colors"]
-            ? `<div class="colors">
-                 <strong>Available colors:</strong>
-                 ${product["Colors"]}
-               </div>`
-            : ""
-          }
-
-          <div class="description">
-            ${product["Description"] || ""}
-          </div>
-
-        </div>
-      `;
-
-      container.appendChild(card);
+      container.appendChild(
+        createProductCard(product)
+      );
 
     });
 
   })
+
+
   .catch(error => {
 
-    document.getElementById("products").innerHTML =
-      "<p>Products are being updated. Please check back soon.</p>";
-
     console.error(error);
+
+
+    document.getElementById(
+      "products"
+    ).innerHTML = `
+
+      <div class="message">
+
+        We're updating our Fall
+        Candyles.
+
+        <br><br>
+
+        Please check back soon.
+
+      </div>
+
+    `;
 
   });
 
 </script>
+
 
 </body>
 </html>
