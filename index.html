@@ -1,244 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Candyles | Handcrafted Candles</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Candyles | Handcrafted Candles</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box}
+body{margin:0;font-family:'Montserrat',sans-serif;color:#38231b}
+header{min-height:72px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}
+.logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;letter-spacing:4px}
+nav a{text-decoration:none;color:#38231b;margin-left:26px;font-size:14px;font-weight:500}
+.hero{text-align:center;padding:90px 20px 80px}
+.eyebrow{text-transform:uppercase;letter-spacing:5px;font-size:11px;font-weight:600}
+.hero h1,.section-title h2,.product-name,.placeholder{font-family:'Cormorant Garamond',serif}
+.hero h1{font-size:60px;font-weight:600;letter-spacing:1px;margin:14px 0}
+.hero p{max-width:720px;margin:auto;font-size:17px;line-height:1.7}
+.products-section{max-width:1250px;margin:auto;padding:55px 25px 90px}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title h2{font-size:40px;margin:0 0 12px}
+.section-title p{max-width:720px;margin:auto;line-height:1.7}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 22px rgba(70,30,10,.09);position:relative}
+.image-container{height:300px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-image{width:100%;height:100%;object-fit:cover;display:none}
+.placeholder{text-align:center;font-size:21px;line-height:1.4}
+.placeholder small{display:block;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:3px;margin-top:10px}
+.featured{position:absolute;top:14px;left:14px;z-index:3;background:#fffaf1;padding:7px 11px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:1px}
+.product-info{padding:22px}.collection{text-transform:uppercase;letter-spacing:2px;font-size:9px;font-weight:600}
+.product-name{font-size:26px;margin:8px 0 10px}.description{font-size:13px;line-height:1.6;min-height:40px}
+.price{font-size:19px;font-weight:700;margin-top:13px}.option-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-top:18px;margin-bottom:8px}
+.colors{display:flex;flex-wrap:wrap;gap:7px}.color-button{font-family:'Montserrat',sans-serif;border:1px solid #d7b9a7;background:white;border-radius:20px;padding:7px 12px;cursor:pointer;font-size:11px}
+.color-button.active{color:white}.details{margin-top:16px;padding-top:14px;border-top:1px solid #eee;font-size:12px;line-height:1.8}
+.stock{margin-top:10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px}.in-stock{color:#53753e}.out-stock{color:#a33c2c}
+footer{text-align:center;padding:35px 20px;font-size:12px}
+@media(max-width:1050px){.products-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){header{padding:12px 18px;flex-direction:column;gap:10px}.logo{font-size:28px}nav a{margin:0 8px;font-size:11px}.hero h1{font-size:45px}.products-grid{grid-template-columns:1fr}}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #fffaf4;
-      color: #33251f;
-    }
-
-    header {
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #33251f;
-    }
-
-    .hero {
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 60px 20px;
-      background: #f4e8dc;
-    }
-
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: 60px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 21px;
-      max-width: 650px;
-      line-height: 1.6;
-    }
-
-    .collections {
-      padding: 80px 8%;
-      text-align: center;
-    }
-
-    .collections h2 {
-      font-family: Georgia, serif;
-      font-size: 38px;
-      margin-bottom: 45px;
-    }
-
-    .collection-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .collection {
-      min-height: 360px;
-      padding: 45px 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      border-radius: 8px;
-    }
-
-    .fall {
-      background: #d7a46c;
-    }
-
-    .diwali {
-      background: #e5b85c;
-    }
-
-    .candy {
-      background: #efcbd3;
-    }
-
-    .collection h3 {
-      font-family: Georgia, serif;
-      font-size: 31px;
-      margin-bottom: 10px;
-    }
-
-    .collection p {
-      margin-bottom: 22px;
-      font-size: 17px;
-    }
-
-    .button {
-      display: inline-block;
-      align-self: center;
-      background: #33251f;
-      color: white;
-      padding: 13px 25px;
-      text-decoration: none;
-      border-radius: 3px;
-    }
-
-    .story {
-      padding: 90px 20%;
-      text-align: center;
-      background: white;
-    }
-
-    .story h2 {
-      font-family: Georgia, serif;
-      font-size: 38px;
-      margin-bottom: 25px;
-    }
-
-    .story p {
-      font-size: 19px;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: #33251f;
-      color: white;
-    }
-
-    @media (max-width: 800px) {
-      .collection-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .story {
-        padding: 60px 10%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">CANDYLES</div>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="fall.html">Fall</a>
-    <a href="diwali.html">Diwali</a>
-    <a href="candy.html">Candy</a>
-  </nav>
-</header>
-
-
-<section class="hero">
-
-  <h1>Candles with a sweet side.</h1>
-
-  <p>
-    Handcrafted candles inspired by celebrations, seasons,
-    and the candy-scented creations we're dreaming up next.
-  </p>
-
-</section>
-
-
-<section class="collections">
-
-  <h2>Explore Candyles</h2>
-
-  <div class="collection-grid">
-
-    <div class="collection fall">
-      <h3>Fall Candyles</h3>
-      <p>Warm, cozy candles made for the season.</p>
-      <a class="button" href="fall.html">Shop Fall</a>
-    </div>
-
-
-    <div class="collection diwali">
-      <h3>Diwali Candyles</h3>
-      <p>Handcrafted light for the festival of lights.</p>
-      <a class="button" href="diwali.html">Shop Diwali</a>
-    </div>
-
-
-    <div class="collection candy">
-      <h3>Candy Candyles</h3>
-      <p>Sweet scents are coming.</p>
-      <a class="button" href="candy.html">Coming Soon</a>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="story">
-
-  <h2>Why Candyles?</h2>
-
-  <p>
-    We love candles. We love candy. Candyles brings those two
-    worlds together — handcrafted candles inspired by color,
-    celebration and, soon, the irresistible scents of your
-    favorite sweet treats.
-  </p>
-
-</section>
-
-
-<footer>
-  © 2026 Candyles · Handcrafted with care
-</footer>
-
-</body>
-</html>
+body{background:#fffaf6}.home-hero{min-height:500px;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;background:linear-gradient(135deg,#f5e5d7,#fff8f1)}.home-hero h1{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:600;margin:0 0 12px}.home-hero p{max-width:700px;margin:auto;font-size:18px;line-height:1.7}.collections{max-width:1200px;margin:auto;padding:70px 25px}.collections h2{font-family:'Cormorant Garamond',serif;font-size:42px;text-align:center}.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.tile{min-height:350px;border-radius:16px;padding:35px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 5px 20px rgba(0,0,0,.07)}.tile h3{font-family:'Cormorant Garamond',serif;font-size:32px;margin:0 0 8px}.tile p{line-height:1.6}.tile a{align-self:flex-start;text-decoration:none;background:#38231b;color:#fff;padding:12px 20px;border-radius:25px;font-size:12px;font-weight:600}.fall{background:#e7b78e}.diwali{background:#f4ddb0}.candy{background:linear-gradient(135deg,#f7dbe7,#e5ddf5,#dcefe9)}.story{text-align:center;padding:80px 20%;background:#fff}.story h2{font-family:'Cormorant Garamond',serif;font-size:42px}.story p{line-height:1.8}footer{background:#38231b;color:#fff}@media(max-width:750px){.collection-grid{grid-template-columns:1fr}.home-hero h1{font-size:48px}.story{padding:60px 10%}}</style></head><body>
+<header><div class="logo">CANDYLES</div><nav><a href="index.html">Home</a><a href="fall.html">Fall</a><a href="diwali.html">Diwali</a><a href="candy.html">Candy</a></nav></header>
+<section class="home-hero"><div><div class="eyebrow">Handcrafted Candles</div><h1>Candles with a sweet side.</h1><p>Handcrafted Candyles inspired by seasons, celebrations and the colorful world of candy.</p></div></section>
+<section class="collections"><h2>Explore Candyles</h2><div class="collection-grid"><div class="tile fall"><h3>Fall Candyles</h3><p>Warm, cozy Candyles made for the season.</p><a href="fall.html">Shop Fall</a></div><div class="tile diwali"><h3>Diwali Candyles</h3><p>Handcrafted light for the Festival of Lights.</p><a href="diwali.html">Shop Diwali</a></div><div class="tile candy"><h3>Candy Candyles</h3><p>Playful candy-themed Candyles and sweet scents in development.</p><a href="candy.html">Explore Candy</a></div></div></section>
+<section class="story"><h2>Why Candyles?</h2><p>Candy meets candles. Candyles brings together handcrafted candle making, celebration, color and a growing collection inspired by the treats we love.</p></section><footer>© 2026 Candyles · Handcrafted with care</footer></body></html>
