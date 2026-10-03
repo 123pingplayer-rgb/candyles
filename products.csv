@@ -3,11 +3,11 @@ FALL001,Fall,Pumpkin Cube Candle,"Orange, Green",Orange:pumpkin-cube-orange.jpg|
 FALL002,Fall,Ghost Candle,White,White:ghost-white.jpg,,,,Handcrafted sculpted ghost candle,,Yes,Yes
 FALL003,Fall,Daisy Jar Candle,"Pink, Purple, Green, Peach",Pink:daisy-jar-pink.jpg|Purple:daisy-jar-purple.jpg|Green:daisy-jar-green.jpg|Peach:daisy-jar-peach.jpg,,,,Layered jar candle with daisy topper,,Yes,Yes
 FALL004,Fall,Bubble Cube Candle,White,White:bubble-cube-white.jpg,,,,Handcrafted textured bubble cube candle,,Yes,No
-DIWALI001,Diwali,Lotus Candle,,,,,,Elegant handcrafted candle for festive décor.,,Yes,Yes
-DIWALI002,Diwali,Diya Candle,,,,,,Diya-inspired candle for Diwali celebrations.,,Yes,Yes
-DIWALI003,Diwali,Festive Candle,,,,,,Handcrafted decorative candle for the Festival of Lights.,,Yes,Yes
-DIWALI004,Diwali,Decorative Candle,,,,,,Festive handcrafted candle for gifts and home décor.,,Yes,No
-CANDY001,Candy,Gummy Bear Candle,,,,,,Candy-inspired candle with a playful gummy bear design.,,Yes,Yes
-CANDY002,Candy,Lollipop Candle,,,,,,Colorful lollipop-inspired candle made for a sweet statement.,,Yes,Yes
-CANDY003,Candy,Cotton Candy Candle,,,,,,"Whimsical candy-inspired candle with a soft, playful look.",,Yes,Yes
-CANDY004,Candy,Candy Shop Candle,,,,,,A fun handcrafted candle inspired by the colors and treats of a candy shop.,,Yes,No
+DIWALI001,Diwali,Lotus Candle,Gold,Gold:lotus-candle.jpg,,,,Elegant handcrafted candle for festive décor.,,Yes,Yes
+DIWALI002,Diwali,Diya Candle,Festive,Festive:diya-candle.jpg,,,,Diya-inspired candle for Diwali celebrations.,,Yes,Yes
+DIWALI003,Diwali,Festive Candle,Ivory,Ivory:festive-candle.jpg,,,,Handcrafted decorative candle for the Festival of Lights.,,Yes,Yes
+DIWALI004,Diwali,Decorative Candle,Ivory,Ivory:decorative-candle.jpg,,,,Festive handcrafted candle for gifts and home décor.,,Yes,No
+CANDY001,Candy,Gummy Bear Candle,Red,Red:gummy-bear-candle.jpg,,,,Candy-inspired candle with a playful gummy bear design.,,Yes,Yes
+CANDY002,Candy,Lollipop Candle,Rainbow,Rainbow:lollipop-candle.jpg,,,,Colorful lollipop-inspired candle made for a sweet statement.,,Yes,Yes
+CANDY003,Candy,Cotton Candy Candle,Pink & Blue,Pink & Blue:cotton-candy-candle.jpg,,,,"Whimsical candy-inspired candle with a soft, playful look.",,Yes,Yes
+CANDY004,Candy,Candy Shop Candle,Pastel,Pastel:candy-shop-candle.jpg,,,,A fun handcrafted candle inspired by the colors and treats of a candy shop.,,Yes,No
