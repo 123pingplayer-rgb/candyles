@@ -1,5 +1,5 @@
-Product ID,Collection,Product Name,Colors,Price,Picture File,Scented,Scent,Description,Size,In Stock,Featured
-FALL001,Fall,Pumpkin Cube Candle,"Orange, Green",,pumpkin-cube.jpg,,,Handcrafted pumpkin cube candle,,Yes,Yes
-FALL002,Fall,Ghost Candle,White,,ghost.jpg,,,Handcrafted sculpted ghost candle,,Yes,Yes
-FALL003,Fall,Daisy Jar Candle,"Pink, Purple, Green",,daisy-jar.jpg,,,Layered jar candle with daisy topper,,Yes,Yes
-FALL004,Fall,Bubble Cube Candle,White,,bubble-cube.jpg,,,Handcrafted textured bubble cube candle,,Yes,No
+Product ID,Collection,Product Name,Colors,Picture Files,Price,Scented,Scent,Description,Size,In Stock,Featured
+FALL001,Fall,Pumpkin Cube Candle,"Orange, Green",Orange:pumpkin-cube-orange.jpg|Green:pumpkin-cube-green.jpg,,,,Handcrafted pumpkin cube candle,,Yes,Yes
+FALL002,Fall,Ghost Candle,White,White:ghost-white.jpg,,,,Handcrafted sculpted ghost candle,,Yes,Yes
+FALL003,Fall,Daisy Jar Candle,"Pink, Purple, Green, Peach",Pink:daisy-jar-pink.jpg|Purple:daisy-jar-purple.jpg|Green:daisy-jar-green.jpg|Peach:daisy-jar-peach.jpg,,,,Layered jar candle with daisy topper,,Yes,Yes
+FALL004,Fall,Bubble Cube Candle,White,White:bubble-cube-white.jpg,,,,Handcrafted textured bubble cube candle,,Yes,No
