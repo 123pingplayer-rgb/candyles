@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Candy Candyles | Candyles</title><style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;color:#3b241c}
+header{height:70px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}
+.logo{font:700 27px Georgia,serif;letter-spacing:3px} nav a{text-decoration:none;color:#3b241c;margin-left:26px}
+.hero{text-align:center;padding:90px 20px 80px}.eyebrow{text-transform:uppercase;letter-spacing:5px;font-size:12px}
+.hero h1{font:52px Georgia,serif;margin:14px 0}.hero p{max-width:700px;margin:auto;font-size:18px;line-height:1.6}
+.products-section{max-width:1250px;margin:auto;padding:55px 25px 90px}.section-title{text-align:center;margin-bottom:45px}
+.section-title h2{font:36px Georgia,serif;margin-bottom:12px}.section-title p{max-width:720px;margin:auto;line-height:1.7}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 22px rgba(70,30,10,.09);position:relative}
+.image-container{height:300px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-image{width:100%;height:100%;object-fit:cover;display:none}.placeholder{text-align:center;font:18px Georgia,serif;line-height:1.5}.placeholder small{display:block;font:10px Arial,sans-serif;letter-spacing:3px;margin-top:10px}
+.featured{position:absolute;top:14px;left:14px;z-index:3;background:#fffaf1;padding:7px 11px;border-radius:20px;font-size:10px;font-weight:bold;letter-spacing:1px}
+.product-info{padding:22px}.collection{text-transform:uppercase;letter-spacing:2px;font-size:10px}.product-name{font:22px Georgia,serif;margin:8px 0 10px}
+.description{font-size:13px;line-height:1.55;min-height:40px}.price{font-size:19px;font-weight:bold;margin-top:13px}
+.option-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-top:18px;margin-bottom:8px}.colors{display:flex;flex-wrap:wrap;gap:7px}
+.color-button{border:1px solid #d7b9a7;background:white;border-radius:20px;padding:7px 12px;cursor:pointer;font-size:12px}.color-button.active{color:white}
+.details{margin-top:16px;padding-top:14px;border-top:1px solid #eee;font-size:12px;line-height:1.8}.stock{margin-top:10px;font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:1px}.in-stock{color:#53753e}.out-stock{color:#a33c2c}
+footer{text-align:center;padding:35px 20px;font-size:13px}
+@media(max-width:1050px){.products-grid{grid-template-columns:repeat(2,1fr)}} @media(max-width:600px){header{padding:0 18px}.logo{font-size:21px}nav a{margin-left:10px;font-size:12px}.hero h1{font-size:40px}.products-grid{grid-template-columns:1fr}}
+
+body{background:#fff9fc;background-image:radial-gradient(circle at 12% 20%,rgba(244,183,205,.22) 0 3px,transparent 4px),radial-gradient(circle at 88% 32%,rgba(177,222,213,.22) 0 3px,transparent 4px)}
+.hero{background:linear-gradient(120deg,#fde3ee,#efe4ff 50%,#ddf4ed);color:#59354d;border-bottom:1px solid #f1d5e4}
+.hero h1{color:#6d3c5b}.eyebrow,.collection{color:#a3537b}.image-container{background:linear-gradient(135deg,#ffeaf2,#eee5ff,#e2f5ef)}.placeholder{color:#9c6381}.featured{color:#9a4e76}.color-button.active{background:#9b5f83;border-color:#9b5f83}footer{background:#56364c;color:#fff0f7}
+</style></head>
+<body><header><div class="logo">CANDYLES</div><nav><a href="index.html">Home</a><a href="fall.html">Fall</a><a href="diwali.html">Diwali</a><a href="candy.html">Candy</a></nav></header>
+<section class="hero"><div class="eyebrow">The Sweet Side of Candyles</div><h1>Candy Candyles</h1><p>Playful candy-themed candles inspired by colorful treats — with candy-inspired scents coming as the collection grows.</p></section>
+<section class="products-section"><div class="section-title"><h2>Handcrafted Candy Candyles</h2><p>Explore the collection. Product photos, colors, scents, sizes and prices can be updated from the master product list.</p></div><div id="products" class="products-grid"></div></section>
+<footer>© 2026 Candyles · Handcrafted with care</footer>
+<script>const COLLECTION="Candy";
+function parseCSV(text){const rows=[];let row=[],cell="",q=false;for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(c=='"'&&q&&n=='"'){cell+='"';i++;}else if(c=='"'){q=!q;}else if(c==","&&!q){row.push(cell);cell="";}else if((c=="\n"||c=="\r")&&!q){if(c=="\r"&&n=="\n")i++;row.push(cell);if(row.some(v=>v.trim()!==""))rows.push(row);row=[];cell="";}else cell+=c;}if(cell.length||row.length){row.push(cell);rows.push(row)}return rows}
+function imageMap(v){const m={};if(!v)return m;v.split("|").forEach(x=>{let p=x.indexOf(":");if(p>-1)m[x.slice(0,p).trim().toLowerCase()]=x.slice(p+1).trim()});return m}
+function card(p){const c=document.createElement("article");c.className="product-card";const box=document.createElement("div");box.className="image-container";if((p.Featured||"").toLowerCase()=="yes"){let b=document.createElement("div");b.className="featured";b.textContent="FEATURED";box.appendChild(b)}
+const img=document.createElement("img");img.className="product-image";img.alt=p["Product Name"]||"Candyles product";const ph=document.createElement("div");ph.className="placeholder";ph.innerHTML="Product photo<br>coming soon<small>CANDYLES</small>";box.append(img,ph);c.appendChild(box);
+const info=document.createElement("div");info.className="product-info";info.innerHTML=`<div class="collection">${p.Collection||""}</div><h3 class="product-name">${p["Product Name"]||""}</h3><div class="description">${p.Description||""}</div>`;if((p.Price||"").trim()){let d=document.createElement("div");d.className="price";d.textContent=p.Price.trim().startsWith("$")?p.Price.trim():"$"+p.Price.trim();info.appendChild(d)}
+const colors=(p.Colors||"").split(",").map(x=>x.trim()).filter(Boolean), map=imageMap(p["Picture Files"]);
+function show(color){let f=map[color.toLowerCase()];if(!f){img.style.display="none";ph.style.display="block";return}img.src="images/"+f;img.onload=()=>{img.style.display="block";ph.style.display="none"};img.onerror=()=>{img.style.display="none";ph.style.display="block"}}
+if(colors.length){let l=document.createElement("div");l.className="option-label";l.textContent="Available colors";let a=document.createElement("div");a.className="colors";colors.forEach((x,i)=>{let b=document.createElement("button");b.className="color-button"+(i==0?" active":"");b.textContent=x;b.onclick=()=>{a.querySelectorAll(".color-button").forEach(z=>z.classList.remove("active"));b.classList.add("active");show(x)};a.appendChild(b)});info.append(l,a);show(colors[0])}
+let det=document.createElement("div");det.className="details";let scented=(p.Scented||"").trim().toLowerCase();if(scented=="yes")det.innerHTML+=`<div><strong>Scent:</strong> ${(p.Scent||"").trim()||"Scented"}</div>`;else if(scented=="no")det.innerHTML+=`<div><strong>Scent:</strong> Unscented</div>`;if((p.Size||"").trim())det.innerHTML+=`<div><strong>Size:</strong> ${p.Size}</div>`;if(det.innerHTML)info.appendChild(det);
+if((p["In Stock"]||"").trim()){let s=document.createElement("div");let yes=p["In Stock"].trim().toLowerCase()=="yes";s.className="stock "+(yes?"in-stock":"out-stock");s.textContent=yes?"● In stock":"Out of stock";info.appendChild(s)}c.appendChild(info);return c}
+fetch("products.csv?v="+Date.now()).then(r=>{if(!r.ok)throw Error();return r.text()}).then(t=>{let rows=parseCSV(t),h=rows.shift().map(x=>x.trim());let all=rows.map(r=>{let o={};h.forEach((x,i)=>o[x]=(r[i]||"").trim());return o});let list=all.filter(p=>(p.Collection||"").toLowerCase()==COLLECTION.toLowerCase()),root=document.getElementById("products");list.forEach(p=>root.appendChild(card(p)));if(!list.length)root.innerHTML="<p>Products coming soon.</p>"}).catch(()=>document.getElementById("products").innerHTML="<p>Products could not be loaded.</p>");
+</script></body></html>
